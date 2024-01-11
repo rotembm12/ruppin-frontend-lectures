@@ -1,0 +1,95 @@
+body {
+  background-color: darkblue;
+  padding: 50px;
+}
+h2 {
+  font-size: 24px;
+  font-style: italic;
+  color: rgb(213, 213, 213);
+  text-align: center;
+  transition: 1s all ease-in;
+  background: yellow;
+  padding: inherit;
+}
+p {
+  color: rgb(239, 231, 217);
+}
+#title_one {
+  text-shadow: 1px 1px rgb(160, 160, 255);
+}
+#title_two {
+  color: beige;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+#title_three {
+  font-size: 36px;
+}
+.class_one.class_two .para {
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: rgb(0, 0, 78);
+  padding: 8px;
+  margin: 16px 0;
+}
+
+a[href] {
+  color: red;
+}
+
+section.pink-title h2 {
+  color: pink;
+}
+section.pink-title > h2 {
+  color: rgb(169, 12, 38);
+}
+
+.pink-title h2 {
+  scale: 1.8;
+}
+
+/* vs */
+.widget > h2:hover[data-rotem="true"] {
+  scale: 1.4;
+  transform: translateX(20px);
+  text-shadow: 3px 3px rgb(209, 209, 239);
+}
+
+.flex-container {
+  display: flex;
+  gap: 8px;
+  height: 400px;
+}
+
+.card {
+  display: block;
+  width: 220px;
+  height: 250px;
+  min-width: 100px;
+  min-height: 180px;
+  background-color: darkgray;
+  border-radius: 12px;
+  border: 2px solid darkcyan;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+}
+.card h4 {
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: darkred;
+}
+.card p {
+  padding: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.card:hover {
+  transform: translate(5px, -10px);
+  box-shadow: 2px 1px 4px;
+}

@@ -1,0 +1,77 @@
+h1 {
+  background-color: white;
+  color: rgb(224, 148, 148);
+}
+
+body {
+  background-color: rgb(50, 49, 49);
+  color: white;
+  margin: 100px;
+}
+
+p {
+  background-color: aquamarine;
+  color: goldenrod;
+  width: 50%;
+}
+div {
+  background: rgb(196, 5, 210);
+}
+
+a[href="https://google.com"]
+{
+  background-color: rgb(90, 25, 83);
+  color: white;
+}
+a,[href="https://google.com"]
+{
+  background-color: rgb(90, 25, 83);
+  color: white;
+}
+
+h2 {
+  color: pink;
+}
+div > h2 {
+  color: blue;
+}
+
+div h2 {
+  color: red;
+}
+.my-class {
+  color: green;
+}
+
+div.my-class.my.me21 {
+}
+
+#my-id {
+  color: yellow;
+}
+
+.my-class {
+  background-color: brown;
+}
+
+.another-class {
+  color: aquamarine;
+  font-size: 50px;
+}
+
+button {
+  transition: 1s all linear;
+  background-color: blue;
+  color: white;
+}
+
+button:hover {
+  background: yellow;
+  color: orangered;
+  box-shadow: -10px 10px 0px 0px rgba(0, 0, 0, 0.48);
+  transform: translate(10px, -10px);
+}
+
+button:active {
+  border: 4px solid lightpink;
+}
