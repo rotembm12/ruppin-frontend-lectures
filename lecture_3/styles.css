@@ -21,8 +21,7 @@ header {
   border-bottom: 2px solid rgb(197, 197, 197);
 }
 
-nav ul {
-  display: flex;
+nav ul.flex-container {
   gap: 45px;
   list-style: none;
   padding: 10px 40px;
@@ -63,9 +62,13 @@ section {
   scroll-margin-top: 100px;
 }
 
-.hero {
+.flex-container {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.hero {
   justify-content: space-between;
   height: 650px;
   border-bottom: 2px solid rgb(197, 197, 197);
@@ -99,10 +102,13 @@ section {
   left: 120px;
 }
 
+.bg-light {
+  background: rgb(255, 255, 249);
+  color: black;
+}
 .text-section {
   padding: 100px 50px;
-  display: flex;
-  align-items: center;
+  margin: 160px auto;
   justify-content: space-around;
 }
 .text-section .details {
@@ -127,25 +133,25 @@ section {
   width: 100%;
 }
 .text-section div.details p {
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.6;
   max-width: 650px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
 }
 
-.text-section .image-stack {
-  width: fit-content;
-}
-.text-section .image-stack img {
+.text-section img {
   border: 3px solid #925ff0;
   border-radius: 155px 155px 15px 15px;
   background-color: rgb(249, 244, 255);
   padding: 10px;
-  max-width: 100%;
+
+  max-width: 45%;
   max-height: 400px;
   object-fit: contain;
   transition: all 0.3s linear;
 }
-.text-section .image-stack img:hover {
+.text-section img:hover {
   transform: rotate3d(0.5, -0.5, 0.01, 45deg);
   transform-origin: center;
 }
@@ -155,10 +161,7 @@ section {
 }
 
 .skills {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 34px;
   padding: 50px 25px;
 }
@@ -194,5 +197,45 @@ section {
 .skills .skill-card:hover {
   cursor: pointer;
   transform: translate(10px, -10px);
-  box-shadow: -10px 10px 2px 2px white;
+  box-shadow: -10px 10px 2px 2px rgb(249, 244, 255);
+}
+
+@media (max-width: 1200px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  h1 {
+    font-size: 64px;
+    width: 100%;
+  }
+  .hero {
+    padding: 0;
+    height: 100vh;
+  }
+  .hero .image-layers {
+    display: none;
+  }
+  .skills .skill-card {
+    width: 90%;
+  }
+  .text-section {
+    padding: 20px 30px;
+    margin: 90px auto;
+    height: 100vh;
+  }
+  .text-section .details {
+    width: 100%;
+    margin: 10px auto;
+  }
+  .text-section img {
+    max-width: 80%;
+    border-radius: 20px;
+  }
+  .text-section div.details h2 {
+    font-size: 32px;
+  }
+
+  header {
+    display: none;
+  }
 }

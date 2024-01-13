@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav>
-        <ul>
+        <ul class="flex-container">
           <li>
             <a href="./navigation.html">
               <img src="./images/Logo.png" alt="Logo" width="60px" />
@@ -17,7 +17,7 @@
           </li>
           <li>
             <div>
-              <ul>
+              <ul class="flex-container">
                 <li>
                   <a href="#first">Section one</a>
                 </li>
@@ -41,7 +41,7 @@
       </nav>
     </header>
     <main>
-      <section class="hero" id="hero">
+      <section class="hero flex-container">
         <div class="image-layers">
           <div class="bubble"></div>
           <img src="./images/Escultures.svg" class="left" alt="sculpture" />
@@ -56,7 +56,7 @@
           />
         </div>
       </section>
-      <section class="text-section" id="first">
+      <section class="text-section flex-container" id="first">
         <div class="details">
           <h2>WE LIKE CSS - REALLY</h2>
           <p>
@@ -66,40 +66,58 @@
             ipsam autem sapiente consequuntur, sit distinctio quisquam!
           </p>
         </div>
-        <div class="image-stack">
-          <img src="./images/Person.webp" alt="person" />
-        </div>
-      </section>
-      <section class="text-section row-reverse" id="second">
-        <div class="details">
-          <h2>WE LIKE CSS</h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            voluptates perferendis dolorem ratione dolore odit accusantium
-            ducimus! Voluptatum, similique unde. Repellat exercitationem iusto
-            ipsam autem sapiente consequuntur, sit distinctio quisquam!
-          </p>
-        </div>
-        <div class="image-stack">
-          <img src="./images/Person.webp" alt="person" />
-        </div>
-      </section>
-      <section class="text-section" id="third">
-        <div class="details">
-          <h2>WE LIKE CSS</h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            voluptates perferendis dolorem ratione dolore odit accusantium
-            ducimus! Voluptatum, similique unde. Repellat exercitationem iusto
-            ipsam autem sapiente consequuntur, sit distinctio quisquam!
-          </p>
-        </div>
-        <div class="image-stack">
-          <img src="./images/Person.webp" alt="person" />
-        </div>
+
+        <img src="./images/Person.webp" alt="person" />
       </section>
 
-      <section class="skills" id="fourth">
+      <section
+        class="text-section flex-container row-reverse bg-light"
+        id="second"
+      >
+        <div class="details">
+          <h2>WE LIKE CSS</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            voluptates perferendis dolorem ratione dolore odit accusantium
+            ducimus! Voluptatum, similique unde. Repellat exercitationem iusto
+            ipsam autem sapiente consequuntur, sit distinctio quisquam!
+          </p>
+        </div>
+
+        <img src="./images/Person.webp" alt="person" />
+      </section>
+
+      <section class="text-section flex-container" id="third">
+        <div class="details">
+          <h2>WE LIKE CSS</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            voluptates perferendis dolorem ratione dolore odit accusantium
+            ducimus! Voluptatum, similique unde. Repellat exercitationem iusto
+            ipsam autem sapiente consequuntur, sit distinctio quisquam!
+          </p>
+        </div>
+
+        <img src="./images/Person.webp" alt="person" />
+      </section>
+
+      <section
+        class="text-section flex-container row-reverse bg-light"
+        id="second"
+      >
+        <div class="details">
+          <h2>WE LIKE CSS</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+            voluptates perferendis dolorem ratione dolore odit accusantium
+            ducimus! Voluptatum, similique unde. Repellat exercitationem iusto
+            ipsam autem sapiente consequuntur, sit distinctio quisquam!
+          </p>
+        </div>
+
+        <img src="./images/Person.webp" alt="person" />
+      </section>
+      <section class="skills flex-container" id="fourth">
         <a class="skill-card" href="./js.html">
           <p>100%</p>
           <p>JavaScript</p>
