@@ -1,0 +1,184 @@
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background: #181818;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #181818;
+  padding: 10px;
+  z-index: 2;
+  border-bottom: 2px solid rgb(197, 197, 197);
+}
+
+nav ul {
+  display: flex;
+  gap: 45px;
+  list-style: none;
+  padding: 10px 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav div ul {
+  justify-content: center;
+  gap: 35px;
+}
+nav ul a {
+  color: white;
+  text-decoration: none;
+}
+nav ul a:hover {
+  color: rgb(255, 236, 236);
+  text-decoration: underline;
+}
+
+nav ul li button {
+  background-color: #925ff0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+h1 {
+  font-size: 144px;
+  width: 700px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 650px;
+  margin-top: 120px;
+  border-bottom: 2px solid rgb(197, 197, 197);
+  overflow: hidden;
+}
+
+.hero .image-layers {
+  width: 350px;
+  position: relative;
+  align-self: flex-end;
+}
+.hero .image-layers img {
+  width: 100%;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+.hero .image-layers .bubble {
+  min-width: 100%;
+  height: 100%;
+  background: #925ff0;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+.hero .image-layers:first-child .bubble {
+  left: -120px;
+}
+.hero .image-layers:last-child .bubble {
+  left: 120px;
+}
+
+.text-section {
+  padding: 100px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.text-section .details {
+  width: 50%;
+}
+.text-section div.details h2 {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+.text-section div.details p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.text-section .image-stack {
+  width: fit-content;
+}
+.text-section .image-stack img {
+  border: 3px solid #925ff0;
+  border-radius: 155px 155px 15px 15px;
+  background-color: rgb(249, 244, 255);
+  padding: 10px;
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  transition: all 0.3s linear;
+}
+.text-section .image-stack img:hover {
+  transform: rotate3d(0.5, -0.5, 0.01, 45deg);
+  transform-origin: center;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  padding: 50px 25px;
+}
+
+.skills .skill-card {
+  display: block;
+  width: 27.5%;
+  border: 1px dashed #925ff034;
+  background-color: #292929;
+  padding: 64px 18px;
+  text-align: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.4s all ease-in;
+  color: inherit;
+  text-decoration: none;
+}
+
+.skills .skill-card p {
+  margin: 0;
+}
+.skills .skill-card p:first-child {
+  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.skills .skill-card p:last-child {
+  font-size: 54px;
+}
+.skills .skill-card:hover {
+  cursor: pointer;
+  transform: translate(10px, -10px);
+  box-shadow: -10px 10px 2px 2px white;
+}
