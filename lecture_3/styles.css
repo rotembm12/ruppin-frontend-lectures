@@ -68,9 +68,9 @@ section {
   align-items: center;
   justify-content: space-between;
   height: 650px;
-  margin-top: 120px;
   border-bottom: 2px solid rgb(197, 197, 197);
   overflow: hidden;
+  padding-top: 125px;
 }
 
 .hero .image-layers {
@@ -111,6 +111,20 @@ section {
 .text-section div.details h2 {
   font-size: 64px;
   margin-bottom: 10px;
+  width: fit-content;
+}
+.text-section div.details h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 20px;
+  margin-top: 5px;
+  background-color: #925ff0;
+  transition: 0.5s all ease-in;
+  border-radius: 4px;
+}
+.text-section div.details h2:hover::after {
+  width: 100%;
 }
 .text-section div.details p {
   font-size: 18px;
