@@ -1,0 +1,16 @@
+@media (max-width: 500px) {
+  body {
+    background-color: brown;
+  }
+  ul {
+    flex-wrap: nowrap;
+  }
+}
+@media (min-width: 1000px) {
+  body {
+    background-color: brown;
+  }
+  ul {
+    flex-wrap: nowrap;
+  }
+}

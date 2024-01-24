@@ -1,0 +1,40 @@
+html {
+  scroll-behavior: smooth;
+  scroll-timeline: 5s;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card {
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+  background-color: bisque;
+  border: 2px solid rgb(255, 205, 143);
+  border-radius: 20px;
+  position: relative;
+}
+.card h2 {
+  position: sticky;
+  top: 10px;
+}
+
+main {
+  position: relative;
+}
+
+section {
+  border: 1px solid gray;
+  border-radius: 20px;
+  margin: 15px;
+  min-height: 600px;
+}
+
+@media (min-width: 800px) and (max-width: 1600px) {
+  h2 {
+    color: red;
+  }
+}

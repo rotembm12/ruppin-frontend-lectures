@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Card with overlay</title>
+    <style>
+      section {
+        padding: 50px;
+      }
+      .card {
+        width: 300px;
+        height: 300px;
+        background-image: linear-gradient(
+            0deg,
+            rgba(11, 13, 13, 0.466) 10%,
+            rgba(52, 52, 52, 0.4192270658263305) 57%
+          ),
+          url(./banana.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="card">
+        <div style="position: relative; z-index: 1; color: white">
+          <h2>blablabla</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Perferendis fuga tempora cum nisi architecto minima a, error
+            provident labore possimus ab odio modi delectus doloribus, velit
+            tempore laboriosam. Quasi, quia.
+          </p>
+        </div>
+        <!-- <div
+          style="
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.208);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+          "
+        ></div> -->
+      </div>
+    </section>
+  </body>
+</html>
