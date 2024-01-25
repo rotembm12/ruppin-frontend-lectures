@@ -9,7 +9,7 @@
 // order.push(); // add new item to the array
 
 function startOrder() {
-  const menu = ["🍞", "🧀", "🫔", "🥣🫕🥫🍳🥩🥓🥙"];
+  const menu = ["🍞", "🧀", "🫔", "🥣", "🫕", "🥫", "🍳", "🥩", "🥓", "🥙"];
   const animals = ["lion", "rhino", "giraffe", "bambi"];
   const orders = [];
 
@@ -55,3 +55,6 @@ function startOrder() {
 
   alert(prettifyOrder(orders));
 }
+
+const startOrderButton = document.getElementById("start-order");
+startOrderButton.addEventListener("click", startOrder);
