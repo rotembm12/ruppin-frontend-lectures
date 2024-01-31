@@ -1,6 +1,5 @@
 const menuBtn = document.querySelector(".mobile-nav button");
 
-// if(menuBtn) {
   
 //   menuBtn.style.color = "yellow";
 //   menuBtn.className = "bg-navy"
@@ -18,7 +17,6 @@ const menuBtn = document.querySelector(".mobile-nav button");
 //   menuBtn.addEventListener("click", function(){
 //     console.log("you clicked - anonymous function")
 //   })
-// }
 
 
 function showMobileMenu() {
@@ -29,13 +27,16 @@ function showMobileMenu() {
 // console.log(showMobileMenu())
 menuBtn.addEventListener("click", showMobileMenu)
 
+
+
+
 function hideMobileMenu() {
   const menu = document.querySelector(".mobile-nav .floating-menu");
   menu.style.transform = 'translateY(-120%)';
 }
 
 const closeMenuBtn = document.querySelector(".floating-menu button")
-document.addEventListener("click", hideMobileMenu)
+closeMenuBtn.addEventListener("click", hideMobileMenu)
 
 // closeMenuBtn.addEventListener("click", function(){
 //   const menu = document.querySelector(".mobile-nav .floating-menu");
