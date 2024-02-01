@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+
+#desktop-nav ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  justify-content: center;
+  gap: 15px;
+}
+
+#mobile-nav ul {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  #desktop-nav ul {
+    display: none;
+  }
+  #mobile-nav ul {
+    display: block;
+    padding: 0;
+  }
+  .floating-menu {
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.547);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 80%;
+    background-color: white;
+    transform: translateX(-105%);
+    transition: all 1s linear ;
+    padding: 10px;
+  }
+  #close-menu{
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.relative {
+  position: relative;
+}
+.bg-red {
+  background: red;
+}
