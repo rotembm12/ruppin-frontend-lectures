@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Handling Example</title>
+  </head>
+  <body>
+    <!-- Example HTML Form -->
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" /><br /><br />
+
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label><br />
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label><br /><br />
+
+      <input
+        type="checkbox"
+        id="subscribe"
+        name="subscribe"
+        value="newsletter"
+      />
+      <label for="subscribe">Subscribe to newsletter</label><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevents the default form submission action
+
+          const formData = new FormData(event.target);
+          const formProps = Object.fromEntries(formData);
+          console.log("Form Data:", formProps);
+
+          // Additional handling here...
+        });
+
+      // Example of handling a change event on a checkbox
+      document
+        .getElementById("subscribe")
+        .addEventListener("change", function (event) {
+          if (event.target.checked) {
+            console.log("Subscribed to newsletter");
+          } else {
+            console.log("Unsubscribed from newsletter");
+          }
+        });
+
+      // Example of handling input events
+      document
+        .getElementById("name")
+        .addEventListener("input", function (event) {
+          console.log("Name:", event.target.value);
+        });
+
+      document
+        .getElementById("email")
+        .addEventListener("input", function (event) {
+          console.log("Email:", event.target.value);
+        });
+
+      // Handle radio button change
+      document.querySelectorAll('[name="gender"]').forEach((radio) => {
+        radio.addEventListener("change", function (event) {
+          console.log("Selected Gender:", event.target.value);
+        });
+      });
+    </script>
+  </body>
+</html>
