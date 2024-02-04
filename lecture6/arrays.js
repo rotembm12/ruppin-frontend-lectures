@@ -1,13 +1,18 @@
-// forEach Examples
+//#region forEach Examples
 let animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
-animals.forEach((animal) => console.log(animal));
+
+animals.forEach((animal, index, array) => {
+  console.log(animal);
+});
 
 let animalCharacteristics = [
   { name: "Lion", habitat: "Savannah" },
   { name: "Penguin", habitat: "Antarctic" },
 ];
+
 animalCharacteristics.forEach((animal) => {
   console.log(`${animal.name} lives in the ${animal.habitat}`);
+  // animal.name + " live in the " + animal.habitat;
 });
 
 animals = ["Dog", "Cat", "Chicken", "Horse"];
@@ -16,11 +21,30 @@ animals.forEach((animal) => {
 });
 
 let animalSounds = ["Roar", "Meow", "Bark", "Neigh"];
-animalSounds.forEach((sound) => alert(sound));
 
-// map Examples
+animalSounds.forEach((sound) => {
+  alert(sound);
+  // sound += "sadsa"; cant do that
+});
+
+animalSounds.forEach(function (sound) {
+  alert(sound);
+});
+//#endregion
+// const doSomething = function (string) {
+//   console.log(string);
+// };
+// const printToConsole = (message) => {
+//   console.log(message);
+// };
+
+//#region map Examples
 animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
-let nameLengths = animals.map((animal) => animal.length);
+
+const animalsLength = animals.map((animal) => {
+  return animal.length;
+});
+
 console.log(nameLengths);
 
 animals = ["lion", "tiger", "elephant", "giraffe"];
@@ -28,14 +52,17 @@ let upperCaseAnimals = animals.map((animal) => animal.toUpperCase());
 console.log(upperCaseAnimals);
 
 animals = ["Dog", "Cat", "Fish"];
-let animalObjects = animals.map((animal) => ({ name: animal }));
+let animalObjects = animals.map((animal) => {
+  return { name: animal };
+});
 console.log(animalObjects);
 
 animals = ["Lion", "Tiger", "Elephant"];
 let greetings = animals.map((animal) => `Hello, I am a ${animal}!`);
 console.log(greetings);
+//#endregion
 
-// filter Examples
+//#region filter Examples
 animals = ["Lion", "Salmon", "Frog", "Eagle"];
 let landAnimals = animals.filter((animal) => animal !== "Salmon");
 console.log(landAnimals);
@@ -53,8 +80,9 @@ let nonBirds = animals.filter(
   (animal) => animal !== "Eagle" && animal !== "Sparrow"
 );
 console.log(nonBirds);
+//#endregion
 
-// find Examples
+//#region find Examples
 animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
 let foundAnimal = animals.find((animal) => animal === "Elephant");
 console.log(foundAnimal);
@@ -72,8 +100,9 @@ let aquaticAnimal = animals.find(
   (animal) => animal === "Salmon" || animal === "Shark"
 );
 console.log(aquaticAnimal);
+//#endregion
 
-// reduce Examples
+//#region reduce Examples
 animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
 let totalLetters = animals.reduce((total, animal) => total + animal.length, 0);
 console.log(totalLetters);
@@ -95,3 +124,4 @@ let longestName = animals.reduce(
   ""
 );
 console.log(longestName);
+//#endregion

@@ -32,17 +32,35 @@
     </form>
 
     <script>
-      document
-        .getElementById("myForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevents the default form submission action
+      const form = document.getElementById("myForm");
 
-          const formData = new FormData(event.target);
-          const formProps = Object.fromEntries(formData);
-          console.log("Form Data:", formProps);
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const genderMale = document.querySelector("#male");
+        const genderFemale = document.querySelector("#female");
+        const subscribeInput = document.querySelector("#subscribe");
 
-          // Additional handling here...
-        });
+        console.log(nameInput.value);
+        console.log(emailInput.value);
+        console.log(genderMale.checked);
+        console.log(genderFemale.checked);
+        console.log(subscribeInput.checked);
+
+        // const emailInput = document.querySelector("#email");
+        // const emailInput = document.querySelector("#email");
+      });
+      // form.addEventListener("submit", function (event) {
+      //   event.preventDefault(); // Prevents the default form submission action
+      //   console.log(event);
+
+      //   const formData = new FormData(event.target);
+      //   const formProps = Object.fromEntries(formData);
+      //   console.log("Form Data:", formProps);
+
+      //   // // Additional handling here...
+      // });
 
       // Example of handling a change event on a checkbox
       document
