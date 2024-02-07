@@ -31,12 +31,6 @@ animalSounds.forEach(function (sound) {
   alert(sound);
 });
 //#endregion
-// const doSomething = function (string) {
-//   console.log(string);
-// };
-// const printToConsole = (message) => {
-//   console.log(message);
-// };
 
 //#region map Examples
 animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
