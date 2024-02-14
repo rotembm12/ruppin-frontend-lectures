@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="add-animal-form">
+      <div>
+        <label for="animal-name">Name</label>
+        <input type="text" id="animal-name" name="animalName" />
+      </div>
+      <div>
+        <label for="animal-sound">sound</label>
+        <input type="text" id="animal-sound" name="animalSound" />
+      </div>
+      <input type="submit" />
+    </form>
+    <div id="animal-list"></div>
+
+    <script>
+      let animals;
+
+      if (localStorage.getItem("animals")) {
+        const stringifiedAnimals = localStorage.getItem("animals");
+        animals = JSON.parse(stringifiedAnimals);
+      } else {
+        animals = [];
+      }
+
+      const addAnimalForm = document.getElementById("add-animal-form");
+
+      function renderAnimals() {
+        // define how animal card looks like
+        const cards = [];
+        animals.forEach((animal) => {
+          const card = `<div style="border: 1px solid black;"> ${animal.name} - ${animal.sound} </div>`;
+          cards.push(card);
+        });
+        const animalsWrapper = document.getElementById("animal-list");
+        animalsWrapper.innerHTML = cards.join("");
+      }
+
+      addAnimalForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const nameInput = document.getElementById("animal-name");
+        const soundInput = document.getElementById("animal-sound");
+
+        if (!nameInput || !soundInput) {
+          // error flow
+          alert("something went wrong");
+          return;
+        }
+
+        if (!nameInput.value || !soundInput.value) {
+          // validate there is a text in the inputs
+          alert("you must provide animal inputs");
+          return;
+        }
+
+        const animal = {
+          name: nameInput.value,
+          sound: soundInput.value,
+        };
+
+        animals.push(animal);
+
+        const stringifiedAnimals = JSON.stringify(animals);
+
+        localStorage.setItem("animals", stringifiedAnimals);
+
+        renderAnimals();
+
+        // remove inputs current value
+        nameInput.value = "";
+        soundInput.value = "";
+      });
+
+      renderAnimals();
+    </script>
+  </body>
+</html>
