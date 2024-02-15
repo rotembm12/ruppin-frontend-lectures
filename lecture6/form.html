@@ -47,9 +47,6 @@
         console.log(genderMale.checked);
         console.log(genderFemale.checked);
         console.log(subscribeInput.checked);
-
-        // const emailInput = document.querySelector("#email");
-        // const emailInput = document.querySelector("#email");
       });
       // form.addEventListener("submit", function (event) {
       //   event.preventDefault(); // Prevents the default form submission action
@@ -92,6 +89,26 @@
           console.log("Selected Gender:", event.target.value);
         });
       });
+
+      cars = ["Honda", "Toyota", "Kia", "Skoda"];
+      let myCars = cars.filter((car) => car !== "Kia" && car !== "Toyota");
+      console.log(myCars);
+    </script>
+    <script>
+      function myFunction(value, index, array) {
+        console.log("hello");
+        let num = value + 5;
+        let returnValue = 0;
+
+        if (value === 3 || value === 1) {
+          returnValue = 5;
+        }
+
+        return returnValue * 2;
+      }
+
+      const numbers1 = [3, 14, 29, 4, 1];
+      const numbers2 = numbers1.map(myFunction);
     </script>
   </body>
 </html>
