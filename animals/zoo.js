@@ -9,7 +9,15 @@ function visitAnimal(animalName) {
 }
 
 function setFilter(filterKey, filterValue) {
-  // make you logic of setting a filter
-  // make sure you save the filter value in local storage
-  // render the appropriate animals based on the current filters
+  /**
+   * ממשו את הלוגיקה של השמת פילטר
+   * הפילטרים הקיימים הם
+   * isPredator: true | false
+   * habitat: "land" | "sea"
+   * weight: value > user selected weight
+   * height: value > user selected height
+   * color: dropdown of all available colors
+   */
+  // ודאו כי אתם שומרים את הפילטרים שהיוזר בחר בלוקל סטורג׳ וטוענים אותם בהתאם
+  // רנדרו רק את החיות שעומדות בתנאים של הפילטרים
 }
