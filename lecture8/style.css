@@ -1,0 +1,72 @@
+body {
+  background: rgb(18, 18, 18);
+  background: linear-gradient(
+    74deg,
+    rgba(18, 18, 18, 1) 18%,
+    rgba(74, 74, 82, 1) 57%
+  );
+
+  padding: 20px 80px;
+}
+
+#placeholder {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  max-width: 250px;
+  overflow: hidden;
+  background: white;
+  border-radius: 20px;
+  animation: fade-in 0.4s ease-in forwards;
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  max-height: 180px;
+  margin: 0 auto;
+  max-width: 250px;
+}
+
+.product-card p {
+  text-align: center;
+  padding: 2px 6px;
+}
+
+.product-card p.price::after {
+  content: "₪";
+}
+
+.empty-result {
+  width: 100%;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+dialog {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-10px, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
