@@ -957,9 +957,9 @@ const dialog = document.querySelector("#product-dialog");
 
 const getProductHTMLCard = (product) => {
   const template = `
-      <div class="card" style="min-height: 360px;" >
-        <img class="card-img-top" src="${product.thumbImage}" alt="${product.name}"/>
-        <div class="card-body">
+      <div data-product="${product.id}" class="card" style="min-height: 360px;" >
+        <img data-product- class="card-img-top" src="${product.thumbImage}" alt="${product.name}"/>
+        <div data-product- class="card-body">
           <p class="card-text">${product.name}</p>
           <p class="card-text">${product.price}</p>
         </div>
@@ -979,7 +979,14 @@ const getCloseModalHTMLButton = () => {
   return closeButton;
 };
 
+const myobj = {
+  name: "test",
+  yellName: () => {
+    console.log(this.name);
+  },
+};
 const handleProductClick = (product) => {
+  this;
   dialog.innerHTML = "";
   dialog.append(getCloseModalHTMLButton(), getProductHTMLCard(product));
   dialog.showModal();
@@ -990,12 +997,12 @@ const getSearchBox = () => {
   queryInput.id = "query-input";
   queryInput.placeholder = "Search products";
   queryInput.className = "form-control my-4";
-  queryInput.oninput = (e) => {
+  queryInput.addEventListener("input", (e) => {
     productsForView = products.filter((product) =>
       product.name.includes(e.target.value)
     );
     renderProducts();
-  };
+  });
   return queryInput;
 };
 
@@ -1032,6 +1039,9 @@ const renderProducts = () => {
     productsPlaceholder.appendChild(getEmptyCardsHTMLTemplate());
   }
   productsPlaceholder.append(...productCards);
+  productsPlaceholder.addEventListener("click", (e) => {
+    e.target;
+  });
 };
 
 document.body.insertAdjacentElement("afterbegin", getSearchBox());

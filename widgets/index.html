@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        gap: 20px;
+      }
+      .bordered {
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="bordered" id="counter"></div>
+      <br />
+      <button id="change-parent-btn">Change Counter Parent</button>
+    </div>
+    <div id="todos" class="bordered"></div>
+
+    <script src="./components.js"></script>
+    <script>
+      const counter = Counter({ parentSelector: "#counter" });
+      counter.render();
+
+      const todoBoard = TodoBoard({ parentSelector: "#todos" });
+      todoBoard.render();
+
+      function generateID() {
+        const letters = "abcdefghijklmnopqrstuvwxyz";
+        let randomId = "";
+        for (let i = 0; i < 6; i++) {
+          randomId += letters[Math.floor(Math.random() * letters.length)];
+        }
+        return randomId;
+      }
+
+      document
+        .querySelector("#change-parent-btn")
+        .addEventListener("click", () => {
+          const newParent = document.createElement("div");
+
+          newParent.id = generateID();
+          document.body.appendChild(newParent);
+
+          counter.state.parentSelector = `#${newParent.id}`;
+        });
+    </script>
+  </body>
+</html>
