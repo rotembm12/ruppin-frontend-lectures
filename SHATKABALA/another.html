@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    another
+    <div id="name"></div>
+    <div id="age"></div>
+    <div id="stats"></div>
+    <script>
+      const savedNameOnStorage = localStorage.getItem("name-filter");
+      const savedAgeOnStorage = localStorage.getItem("age-filter");
+      if (savedNameOnStorage) {
+        document.getElementById("name").innerText = savedNameOnStorage;
+
+        document.getElementById("stats").innerText = localStorage.getItem(
+          `${savedNameOnStorage}-stats`
+        );
+      }
+
+      if (savedAgeOnStorage) {
+        document.getElementById("age").innerText = savedAgeOnStorage;
+      }
+    </script>
+  </body>
+</html>

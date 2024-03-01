@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      starting point: load existing input values on each change of input: save
+      the current values
+    </p>
+
+    <input type="text" id="name" placeholder="name" />
+    <input type="number" id="age" placeholder="age" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+      <label for="">Subscribe</label>
+      <input type="checkbox" id="subscribe" />
+    </div>
+    <br />
+    <div>
+      <div>
+        <label for="">Female</label>
+        <input type="radio" name="gender" value="female" />
+      </div>
+      <div>
+        <label for="">male</label>
+        <input type="radio" name="gender" value="male" />
+      </div>
+      <div>
+        <label for="">other</label>
+        <input type="radio" name="gender" value="other" />
+      </div>
+    </div>
+    <button>Save current details for the existing name</button>
+    <script>
+      const nameinput = document.querySelector("#name");
+      const ageinput = document.querySelector("#age");
+      const subscribeinput = document.querySelector("#subscribe");
+      const genderinputs = document.querySelectorAll("[name='gender']");
+      const nameFilterKey = "name-filter";
+      const ageFilterKey = "age-filter";
+      const subscribeFilterKey = "subscribe-filter";
+      const genderFilterKey = "gender-filter";
+
+      // !== 0,"",false,null,undefined
+      if (localStorage.getItem(nameFilterKey)) {
+        nameinput.value = localStorage.getItem(nameFilterKey);
+      }
+      if (localStorage.getItem(ageFilterKey)) {
+        ageinput.value = localStorage.getItem(ageFilterKey);
+      }
+
+      if (localStorage.getItem(subscribeFilterKey)) {
+        const currentValue = localStorage.getItem(subscribeFilterKey);
+        if (currentValue === "true") {
+          subscribeinput.checked = true;
+        } else {
+          subscribeinput.checked = false;
+        }
+      }
+
+      const savedGenderFilterValue = localStorage.getItem(genderFilterKey);
+      if (savedGenderFilterValue) {
+        genderinputs.forEach((input) => {
+          if (input.value === savedGenderFilterValue) {
+            input.checked = true;
+          }
+        });
+      }
+
+      const saveButton = document.querySelector("button");
+      saveButton.addEventListener("click", function () {
+        const currentName = nameinput.value;
+        if (!currentName) {
+          return;
+        }
+        const storageKey = currentName + "-stats";
+
+        const stats = {
+          name: nameinput.value,
+          age: ageinput.value,
+        };
+        localStorage.setItem(storageKey, JSON.stringify(stats));
+      });
+
+      // Render the elements based on existing filters
+
+      nameinput.addEventListener("input", () => {
+        setFilterOnLocalStorage(nameFilterKey, nameinput.value);
+      });
+      ageinput.addEventListener("input", () => {
+        setFilterOnLocalStorage(ageFilterKey, ageinput.value);
+      });
+      subscribeinput.addEventListener("change", () => {
+        setFilterOnLocalStorage(subscribeFilterKey, subscribeinput.checked);
+      });
+
+      genderinputs.forEach((input) => {
+        input.addEventListener("change", () => {
+          setFilterOnLocalStorage(genderFilterKey, input.value);
+        });
+      });
+
+      function setFilterOnLocalStorage(localStorageKey, valueToSet) {
+        localStorage.setItem(localStorageKey, valueToSet);
+        console.log(localStorage.getItem(localStorageKey));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 99vh;
+
+        background: linear-gradient(45deg, #d2641f, #c538ed);
+      }
+      #products-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+      }
+      .prod-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        padding: 5px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      }
+      .prod-card img {
+        width: 100%;
+        max-height: 80px;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+      .inputs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .input-wrapper {
+        width: 30%;
+        padding: 25px;
+      }
+      .input-wrapper input {
+        width: 100%;
+        padding: 10px;
+        border: #c538ed 2px solid;
+        border-radius: 10px;
+        font-size: 1.2rem;
+      }
+    </style>
+    <script>
+      const products = [
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/wallet_coins_darkBrown/coins_brown_main_new.webp",
+          name: "ארנק לגבר עם חריטה מעור חום - אחסון פנימי ענק",
+          price: 249,
+          type: "wallet_coins_darkBrown",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/productGalley%20ARCOS%2Farcos_chef21_main.jpeg?alt=media&token=6404b2df-2971-4ba2-9317-a1265a9d447f",
+          name: 'סכין שף עם חריטה בעלת להב באורך 21 ס"מ ארקוס Arcos',
+          price: 249,
+          type: "arcos21_chef",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/productGalley%20ARCOS%2Farcos_nordica_santoku_main.jpg?alt=media&token=0dbc1b18-1b50-4ce0-9c47-fa0352b2d02e",
+          name: 'סכין סנטוקו מחוזקת עם חריטה בעלת להב באורך 20 ס"מ ארקוס Arcos',
+          price: 319,
+          type: "arcos_chef_nordica_santoku",
+        },
+        {
+          image: "https://assets.nameitonsteel.com/products/bamboo_big/1.webp",
+          name: 'קרש חיתוך עם חריטה מעץ במבוק באורך 40 ס"מ',
+          price: 229,
+          type: "bamboo_big",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/Bracelets%2Fnum254r.jpg?alt=media&token=b1887c59-7175-4aa0-8d2d-e9df3051d9ef",
+          name: "צמיד שמות עם חריטה לגבר - 3 חרוזי כסף",
+          price: 199,
+          type: "bracelet_3names",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/bracelet_4names/num2_1.webp",
+          name: "צמיד שמות עם חריטה לגבר - 4 חרוזי כסף",
+          price: 229,
+          type: "bracelet_4names",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/Bracelets%2FUntitled%20design%20-%202022-10-08T202510.768.png?alt=media&token=d2a58afc-4f62-4f06-a7e1-c2b3c7f244e4",
+          name: "צמיד עם חריטה לגבר - לולאות כסף",
+          price: 129,
+          type: "bracelet_crown",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/naaman_butcher_small_engrave/4.webp",
+          name: "בוצ'ר עץ שיטה עם חריטה באורך 35 ס\"מ\n",
+          price: 199,
+          type: "naaman_butcher_small_engrave",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/olive_butcher_engrave/10.webp",
+          name: 'קרש חיתוך עם חריטה מעץ זית טבעי באורך 40 ס"מ',
+          price: 399,
+          type: "olive_butcher_engrave",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/steak_knife_6_wood/steakKnives4.webp",
+          name: "סט 6 סכיני סטייק עם חריטה אישית",
+          price: 299,
+          type: "steak_knife_6_wood",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/zait_dick26/23.webp",
+          name: "קרש חיתוך עץ זית וסכין בשר F.DICK עם חריטה",
+          price: 589,
+          type: "zait_dick26",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/productGallery6%2FMESA%2Falon_handle_main.jpg?alt=media&token=eeac1ec0-7a75-4b51-968b-df944807a77b",
+          name: "קרש חיתוך עם חריטה מעץ אלון מלא",
+          price: 359,
+          type: "alon_handle",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/productGalley%20ARCOS%2Farcos_nordica_main.jpeg?alt=media&token=26c81471-3a90-4c75-84fa-67309eb365a5",
+          name: 'סכין שף מחוזקת עם חריטה בעלת להב באורך 21 ס"מ ארקוס Arcos',
+          price: 329,
+          type: "arcos_chef_nordica",
+        },
+        {
+          image: "https://assets.nameitonsteel.com/products/bakery_kit/26.webp",
+          name: "מארז לאופים עם חריטה הכולל קרש חיתוך, שפכטל לבצק ומארוך",
+          price: 329,
+          type: "bakery_kit",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/bamboo_small/12.webp",
+          name: 'קרש חיתוך עם חריטה מעץ במבוק באורך 35 ס"מ',
+          price: 199,
+          type: "bamboo_small",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/nameitonsteelwebsite.appspot.com/o/MainProductPictures_superCompressed%2Fsharpener_berox.jpg?alt=media&token=6b894a58-6c7b-48e9-8fe6-02201b40c974",
+          name: "משחיז סכינים מקצועי תלת שלבי\n",
+          price: 79,
+          type: "beroxSharpener",
+        },
+        {
+          image:
+            "https://assets.nameitonsteel.com/products/birkat_habait/mainImage.webp",
+          name: "שלט ברכת הבית מעוצבת לתלייה בחריטה אישית על פלטת עץ",
+          price: 199,
+          type: "birkat_habait",
+        },
+        {
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/assets.nameitonsteel.com/o/mainImages%2F%D7%AA%D7%9E%D7%95%D7%A0%D7%94%20%D7%A8%D7%90%D7%A9%D7%99%D7%AA%20%D7%A1%D7%98%D7%99%D7%99%D7%A7%20%D7%95%D7%A4%D7%9C%D7%A4%D7%9C%20%D7%9E%D7%9C%D7%97%20(1).png?alt=media&token=cbf9aa7e-7267-49af-9e63-c1bcf0bbf370",
+          name: "בוצ'ר /קרש חיתוך וסכיני סטייק עם חריטה",
+          price: 479,
+          type: "c_4steakKnives",
+        },
+      ];
+      let productsToRender = products.map((prod) => prod);
+    </script>
+  </head>
+  <body>
+    <div class="inputs">
+      <div class="input-wrapper">
+        <input placeholder="Filter by name" type="text" id="filter-by-name" />
+      </div>
+      <div class="input-wrapper">
+        <input
+          placeholder="Filter by max price"
+          type="number"
+          id="filter-by-max-price"
+        />
+      </div>
+      <div class="input-wrapper">
+        <input type="button" value="clear inputs" id="clear-inputs" />
+      </div>
+    </div>
+    <div id="products-list"></div>
+    <script>
+      function renderProducts() {
+        const productsContainer = document.getElementById("products-list");
+
+        // loop throught productsToRender and create a card for each product
+        productsToRender.forEach((product) => {
+          const productContainer = document.createElement("div");
+          productContainer.className = "prod-card";
+
+          productsContainer.appendChild(productContainer);
+
+          const productImage = document.createElement("img");
+          productImage.src = product.image;
+          productImage.style.width = "100%";
+          productImage.style.borderRadius = "10px";
+          productContainer.appendChild(productImage);
+
+          const productName = document.createElement("h3");
+          productName.textContent = product.name;
+          productName.style.textAlign = "center";
+          productContainer.appendChild(productName);
+
+          const productPrice = document.createElement("p");
+          productPrice.textContent = `₪${product.price}`;
+          productPrice.style.textAlign = "center";
+          productContainer.appendChild(productPrice);
+
+          const productTags = document.createElement("div");
+          productTags.style.display = "flex";
+          productTags.style.flexWrap = "wrap";
+          productTags.style.gap = "5px";
+          productTags.style.justifyContent = "center";
+          productTags.style.alignItems = "center";
+
+          productContainer.appendChild(productTags);
+        });
+      }
+      renderProducts();
+    </script>
+    <script>
+      // implement the name filter functionality
+    </script>
+    <script>
+      // implement the max price filter functionality
+    </script>
+    <script>
+      // make the filters work together and render the products after filtering with combined results
+      // if max price is 200 and name is "סכין" the products list should show only products with price <= 200 and name includes "סכין"
+    </script>
+
+    <script>
+      // implement clear-input functionality when the clear inputs button clicked
+    </script>
+  </body>
+</html>
