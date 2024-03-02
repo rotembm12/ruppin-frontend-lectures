@@ -203,58 +203,74 @@
       </div>
     </div>
     <div id="products-list"></div>
+
     <script>
-      function renderProducts() {
-        const productsContainer = document.getElementById("products-list");
+      // 1. implement the name filter functionality
 
-        // loop throught productsToRender and create a card for each product
-        productsToRender.forEach((product) => {
-          const productContainer = document.createElement("div");
-          productContainer.className = "prod-card";
-
-          productsContainer.appendChild(productContainer);
-
-          const productImage = document.createElement("img");
-          productImage.src = product.image;
-          productImage.style.width = "100%";
-          productImage.style.borderRadius = "10px";
-          productContainer.appendChild(productImage);
-
-          const productName = document.createElement("h3");
-          productName.textContent = product.name;
-          productName.style.textAlign = "center";
-          productContainer.appendChild(productName);
-
-          const productPrice = document.createElement("p");
-          productPrice.textContent = `₪${product.price}`;
-          productPrice.style.textAlign = "center";
-          productContainer.appendChild(productPrice);
-
-          const productTags = document.createElement("div");
-          productTags.style.display = "flex";
-          productTags.style.flexWrap = "wrap";
-          productTags.style.gap = "5px";
-          productTags.style.justifyContent = "center";
-          productTags.style.alignItems = "center";
-
-          productContainer.appendChild(productTags);
-        });
-      }
-      renderProducts();
+      // const filterByNameInput = document.getElementById("filter-by-name");
+      // filterByNameInput.addEventListener("input", () => {
+      //   const filterValue = filterByNameInput.value;
+      //   const productsContainer = document.getElementById("products-list");
+      //   productsContainer.innerHTML = "";
+      //   productsToRender = products.filter((product) =>
+      //     product.name.includes(filterValue)
+      //   );
+      //   renderProducts();
+      // });
     </script>
     <script>
-      // implement the name filter functionality
+      // 2. implement the max price filter functionality
+
+      // const filterByMaxPriceInput = document.getElementById(
+      //   "filter-by-max-price"
+      // );
+      // filterByMaxPriceInput.addEventListener("input", () => {
+      //   const filterValue = filterByMaxPriceInput.value;
+      //   const productsContainer = document.getElementById("products-list");
+      //   productsContainer.innerHTML = "";
+      //   productsToRender = products.filter(
+      //     (product) => product.price <= filterValue
+      //   );
+      //   renderProducts();
+      // });
     </script>
     <script>
-      // implement the max price filter functionality
-    </script>
-    <script>
-      // make the filters work together and render the products after filtering with combined results
+      // 3.make the filters work together and render the products after filtering with combined results
       // if max price is 200 and name is "סכין" the products list should show only products with price <= 200 and name includes "סכין"
+
+      //שימו בקומנט את הסקריפטים הקודמים וכתבו את הקוד שלכם כאן
+
+      const filterByNameInput = document.getElementById("filter-by-name");
+      const filterByMaxPriceInput = document.getElementById(
+        "filter-by-max-price"
+      );
+
+      function filter() {
+        const filterValue = filterByNameInput.value;
+        const maxPrice = filterByMaxPriceInput.value;
+        productsToRender = products.filter(
+          (product) =>
+            product.name.includes(filterValue) &&
+            product.price <= (maxPrice ? maxPrice : Infinity)
+        );
+        renderProducts();
+      }
+
+      filterByNameInput.addEventListener("input", filter);
+
+      filterByMaxPriceInput.addEventListener("input", filter);
     </script>
 
     <script>
-      // implement clear-input functionality when the clear inputs button clicked
+      // 4. implement clear-input functionality when the clear inputs button clicked
+      const clearInputsButton = document.getElementById("clear-inputs");
+      function clear() {
+        filterByNameInput.value = "";
+        filterByMaxPriceInput.value = "";
+        productsToRender = products.map((prod) => prod);
+        renderProducts();
+      }
+      clearInputsButton.addEventListener("click", clear);
     </script>
   </body>
 </html>
