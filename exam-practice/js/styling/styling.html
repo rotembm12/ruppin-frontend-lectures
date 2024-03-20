@@ -12,9 +12,12 @@
       table {
         text-align: center;
       }
-    </style>
 
-    <script></script>
+      .userCard {
+        border: 2px dashed blue;
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="controls">
@@ -46,8 +49,62 @@
       </table>
 
       <button>Press Me</button>
+      <button id="render">Render user</button>
     </div>
 
     <div id="ph">This is some text</div>
+    <div id="ph2"></div>
+
+    <script>
+      // styling solution
+      const fontSelector = document.querySelector("#fontSizeSelect");
+      const inpRed = document.querySelector("#red");
+      const inpGreen = document.querySelector("#green");
+      const inpBlue = document.querySelector("#blue");
+      const pressMeBtn = document.querySelectorAll("button")[0];
+      const placeHolder = document.querySelector("#ph");
+
+      pressMeBtn.addEventListener("click", handlePressMeClick);
+
+      function handlePressMeClick() {
+        console.log(fontSelector.value);
+        placeHolder.style.fontSize = fontSelector.value + "px";
+
+        let color = "#" + inpRed.value + inpGreen.value + inpBlue.value;
+        placeHolder.style.backgroundColor = color;
+        console.log(placeHolder.style.backgroundColor);
+      }
+
+      console.log(fontSelector);
+      console.log(inpRed);
+      console.log(pressMeBtn);
+
+      // פתרון של רנדור דינמני (מאולתר)
+
+      const arr = [
+        { user: "aaa", password: "ppp" },
+        { user: "aaa", password: "ppp" },
+        { user: "aaa", password: "ppp" },
+        { user: "aaa", password: "ppp" },
+        { user: "aaa", password: "ppp" },
+      ];
+      const renderBtn = document.querySelector("#render");
+      const placeHolder2 = document.querySelector("#ph2");
+      renderBtn.addEventListener("click", handleRenderClick);
+
+      function getTemplateByUser(myUser) {
+        const myDiv = document.createElement("div");
+        myDiv.classList += "userCard";
+        myDiv.innerHTML = `<p>${myUser.user}</p><p>${myUser.password}</p>`;
+        return myDiv;
+      }
+
+      function handleRenderClick() {
+        arr.forEach((user) => {
+          const temp = getTemplateByUser(user);
+          placeHolder2.appendChild(temp);
+        });
+      }
+    </script>
   </body>
 </html>
