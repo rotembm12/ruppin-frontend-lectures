@@ -4,9 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style></style>
+    <style>
+      body {
+        font-family: cursive;
+      }
+      h1 {
+        text-align: center;
+        background: whitesmoke;
+        position: sticky;
+        top: 0;
+        width: 100%;
+      }
+
+      #list {
+        width: 20%;
+        padding: 50px;
+        margin: 10px;
+        background: goldenrod;
+        color: white;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      #steps {
+        background: #f6f1cc;
+        border-radius: 50px;
+        padding: 50px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        width: 66%;
+      }
+
+      #steps img {
+        box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.5);
+      }
+    </style>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">
+      <h1>Let's make Knafeh!</h1>
+
+      <div id="list">
+        <h2>Ingridients</h2>
+        <ul>
+          <li>500g knafeh hairs</li>
+          <li>9 cups mozzarella</li>
+          <li>1 cup butter</li>
+          <li>1 cup pistachios</li>
+        </ul>
+      </div>
+      <div id="steps">
+        <div>
+          <h3>Step1</h3>
+          <img src="./step1.jpg" alt="step 1" />
+        </div>
+        <div>
+          <h3>Step1</h3>
+          <img src="./step1.jpg" alt="step 1" />
+        </div>
+        <div>
+          <h3>Step1</h3>
+          <img src="./step1.jpg" alt="step 1" />
+        </div>
+        <div>
+          <h3>Step1</h3>
+          <img src="./step1.jpg" alt="step 1" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

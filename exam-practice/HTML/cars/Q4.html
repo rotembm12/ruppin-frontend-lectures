@@ -4,9 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style></style>
+    <style>
+      #container {
+        width: 90%;
+        height: 150vh;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        background-color: darkblue;
+        color: white;
+        position: sticky;
+        top: 0;
+      }
+      #content {
+        display: flex;
+        justify-content: center;
+      }
+      #models {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+      }
+      #models .model {
+        border: 3px solid darkblue;
+        width: 48.5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #models .model img {
+        width: 500px;
+      }
+      .ads {
+        width: 15%;
+        background-color: lightgray;
+      }
+    </style>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">
+      <h1>Porsche</h1>
+      <div id="content">
+        <div id="left" class="ads">
+          <ol>
+            <li>
+              <a href="https://www.porsche.com/usa">call us</a>
+            </li>
+            <li>Why porsche</li>
+            <li>Related articles</li>
+          </ol>
+        </div>
+        <div id="models">
+          <div class="model">
+            <h3>911</h3>
+            <img src="./911.jpg" alt="911" />
+          </div>
+
+          <div class="model">
+            <h3>911</h3>
+            <img src="./911.jpg" alt="911" />
+          </div>
+          <div class="model">
+            <h3>911</h3>
+            <img src="./911.jpg" alt="911" />
+          </div>
+          <div class="model">
+            <h3>911</h3>
+            <img src="./911.jpg" alt="911" />
+          </div>
+        </div>
+        <div id="right" class="ads">
+          <ol>
+            <li>
+              <a href="https://youtube.com">call us</a>
+            </li>
+            <li>bla</li>
+            <li>bla</li>
+          </ol>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
